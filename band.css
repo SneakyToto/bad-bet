@@ -3,29 +3,50 @@
 	font-weight: bold;
 	font-style: italic;
 }
-body{
-	font-family: arial;
-}
 ul{
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: #333;
+	background-color: #1e1e1e;
 }
 li{
 	float: left;
 }
 li a{
 	display: block;
-	color: white;
+	color: #FCFBE3;
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
 }
 li a:hover{
-	background-color: #4c0000;
+	background-color: #381C83;
 }
 .active{
-	background-color: #6d0000;
+	background-color: #0CA5B0;
+}
+body{
+	font-family: arial;
+	color: #381C83;
+	background-color: #FCFBE3;
+}
+.title{
+	text-align: center;
+}
+.collage{
+	height: 75%;
+	width: 75%;
+	padding-bottom: 10px;
+}
+div.music{
+	margin: 30px;
+}
+#music{
+	width: 100%;
+	overflow: hidden;
+}
+audio{
+	border: solid;
+	border-width: 5px;
 }
