@@ -82,17 +82,20 @@
 				echo "<font color = 'green' size = +1>Thanks for your interest!</font>";
 				echo "</br>";
 
+				// need to create a more efficient way to do this other than 5 arrays
 				$gigStates = array("Virginia", "New York", "West Virginia");
 				$gigNums = array("Virginia"=>0, "New York"=>1, "West Virginia"=>2);
 				$gigCities = array("Charlottesville", "Yonkers", "Clarksburg");
 				$gigDates = array("4/5/18", "4/21/18","4/10/20");
 				$gigTicketed = array(false, true, false);
 
+				// proximity function gives distance to events
 				function proximity($place, $locations, $cities, $nums, $dates, $ticketing){
 					if (in_array($place, $locations)){
 						echo "There is an upcoming event in " . $cities[$nums[$place]] . ", " . $place . " on " . $dates[$nums[$place]] . "!";
 						echo "</br>";
 						if ($ticketing[$nums[$place]]){
+							// a separate page for purchasing tickets is in development
 							echo "This is a Ticketed event. You may purchase them here (Link TBD).";
 						}
 						else {
