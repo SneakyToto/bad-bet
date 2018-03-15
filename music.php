@@ -2,7 +2,6 @@
 <html>
 <head>
 	<title>BAD BET OFFICIAL</title>
-	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="band.css">
 </head>
 <body>
@@ -58,7 +57,9 @@
 		}
 	</script>
 
-	<form action = "<php $_SERVER['PHP_SELF'] ?>" method = "post">
+	<!-- $_SERVER['PHP_SELF'] -->
+
+	<form action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method = "post">
 		<h2>Want to see Bad Bet perform live?</h2>
 		<h4>Enter your City and State and we'll tell you the nearest upcoming Gig!</h4>
 		<textarea rows = "1" cols = "20" name = "city"></textarea>
@@ -70,20 +71,42 @@
 
 	// sticky form
 
-		$City = $feedback = NULL;
+		$city = $state = $feedback = NULL;
 
 		if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-			if (empty($_POST['city']) || empty($_POST['state'])){
-				echo "<font color = 'red' ><i> Please enter both a City and State </i></font> <br />"
-			}
+			if (empty($_POST['city']) || empty($_POST['state']))
+				echo "<font color = 'red' ><i> Please enter both a City and State </i></font> <br />";
 			else {
 				$city = trim($_POST['city']);
 				$state = trim($_POST['state']);
-				echo "<font color = 'green' size = +1>Thanks for your interest!</font>"
+				echo "<font color = 'green' size = +1>Thanks for your interest!</font>";
+				echo "</br>";
+
+				$gigStates = array("Virginia", "New York", "West Virginia");
+				$gigNums = array("Virginia"=>0, "New York"=>1, "West Virginia"=>2);
+				$gigCities = array("Charlottesville", "Yonkers", "Clarksburg");
+				$gigDates = array("4/5/18", "4/21/18","4/10/20");
+				$gigTicketed = array(false, true, false);
+
+				function proximity($place, $locations, $cities, $nums, $dates, $ticketing){
+					if (in_array($place, $locations)){
+						echo "There is an upcoming event in " . $cities[$nums[$place]] . ", " . $place . " on " . $dates[$nums[$place]] . "!";
+						echo "</br>";
+						if ($ticketing[$nums[$place]]){
+							echo "This is a Ticketed event. You may purchase them here (Link TBD).";
+						}
+						else {
+							echo "Admission is free. All are welcome.";
+						}
+					}
+					else {
+						echo "Sorry, but we couldn't find an event near your location";
+					}
+				}
+
+				proximity($state, $gigStates, $gigCities, $gigNums, $gigDates, $gigTicketed);
 			}
 		}
-
-
 
 	?>
 
