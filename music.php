@@ -6,12 +6,12 @@
 </head>
 <body>
 	<ul> <!--Menu navigation bar-->
-		<li id="home"><a href="band.html">bad bet</a></li>
-		<li class="active"><a href="music.php">music</a></li>
-		<li><a href="vlog.html">on the street</a></li>
-		<li><a href="gig.html">gigs</a></li>
-<!-- 		<li><a href="contact.html">find us!</a></li>
- -->	</ul>
+		<li id="home"><a href="band.html">Bad Bet</a></li>
+		<li class="active"><a href="music.php">Music</a></li>
+		<li><a href="vlog.html">On The Street</a></li>
+		<li><a href="gig.html">Gigs</a></li>
+ 		<li><a href="contact.php">Member Login</a></li>
+  </ul>
 
 	<div class="music"> <!--top row div-->
 		<div id="demo" style="float: left; margin-right: 50px;">
